@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { colors } from "@/lib/colors";
 
 export default function Hero() {
     return (
@@ -17,21 +18,21 @@ export default function Hero() {
             {/* Dark overlay (optional, only over image, not over orange) */}
             <div
                 className="absolute inset-0"
-                style={{ backgroundColor: "rgba(0,0,0,0.3)", clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
+                style={{ backgroundColor: "rgba(0,0,0,0.4)", clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
             />
 
             {/* Bottom-right orange trim starting immediately after image */}
-            <div className="absolute bottom-0 w-full h-[40%] bg-[#F28500] clip-path-orange" />
+            <div className="absolute bottom-0 w-full h-[40%] clip-path-orange" style={{ backgroundColor: colors.orange.warm }} />
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col justify-center h-full max-w-6xl mx-auto px-6 md:px-12 text-white">
-                <span className="uppercase text-sm md:text-lg tracking-widest mb-2 border-l-2 border-[#F28500] pl-2">
+            <div className="relative z-10 flex flex-col justify-center h-full max-w-6xl mx-auto px-4 sm:px-6 md:px-12 text-white">
+                <span className="uppercase text-xs sm:text-sm md:text-lg tracking-widest mb-2 border-l-2 pl-2" style={{ borderColor: colors.orange.dark }}>
                     PROTECT YOUR LIFE
                 </span>
-                <h1 className="text-3xl md:text-7xl font-bold leading-tight mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold leading-tight mb-3 md:mb-4">
                     Shaping the Future with Quality Plastic Solutions
                 </h1>
-                <p className="text-sm md:text-base max-w-3xl mb-6">
+                <p className="text-xs sm:text-sm md:text-base max-w-3xl mb-4 md:mb-6">
                     Since 1988, Mandviwalla Mauser Plastic Industries Limited has been delivering world-class
                     injection and blow-moulded plastic products in Pakistan. Powered by German technology and
                     decades of expertise, we are the pioneers of 210-liter industrial drums and premium plastic
@@ -39,10 +40,13 @@ export default function Hero() {
                 </p>
 
                 {/* Buttons */}
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                     <Link
                         href="/products"
-                        className="px-6 py-3 bg-[#1338BE] text-white font-semibold rounded hover:bg-[#F28500] transition flex items-center gap-2"
+                        className="px-4 sm:px-6 py-2 sm:py-3 text-white font-semibold rounded transition flex items-center justify-center gap-2 text-sm md:text-base"
+                        style={{ backgroundColor: colors.primary.blue }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.orange.dark}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.primary.blue}
                     >
                         <svg
                             width="25"
@@ -61,7 +65,10 @@ export default function Hero() {
 
                     <Link
                         href="/contact"
-                        className="px-6 py-3 bg-[#F28500] text-white font-semibold rounded hover:bg-[#1338BE] transition flex items-center gap-2"
+                        className="px-4 sm:px-6 py-2 sm:py-3 text-white font-semibold rounded transition flex items-center justify-center gap-2 text-sm md:text-base"
+                        style={{ backgroundColor: colors.orange.dark }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.primary.blue}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.orange.dark}
                     >
                         <svg
                             width="18"

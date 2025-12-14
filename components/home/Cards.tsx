@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { colors } from "@/lib/colors";
 
 const CardData = [
     {
@@ -49,18 +50,18 @@ const CardData = [
 
 const Cards = () => {
     return (
-        <div className="container mx-auto px-4 md:px-20 py-10 flex justify-center">
-            <div className="grid md:grid-cols-3 gap-4">
+        <div className="container mx-auto px-4 md:px-20 py-8 md:py-10 flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 max-w-5xl">
                 {CardData.map((card, idx) => (
-                    <div key={idx} className="flex items-center gap-4">
+                    <div key={idx} className="flex items-start md:items-center gap-3 md:gap-4">
                         {/* Icon with blue background */}
-                        <div className="flex items-center justify-center w-20 h-20 rounded-full bg-[#1338BE] p-5 text-white">
+                        <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full p-4 md:p-5 text-white flex-shrink-0" style={{ backgroundColor: colors.primary.blue }}>
                             {card.svg}
                         </div>
                         {/* Content with limited width */}
-                        <div className="flex flex-col max-w-xs">
-                            <h2 className="text-xl md:text-xl font-semibold">{card.title}</h2>
-                            <p className="text-sm text-[#666666] mt-2">{card.text}</p>
+                        <div className="flex flex-col flex-1">
+                            <h2 className="text-lg md:text-xl font-semibold">{card.title}</h2>
+                            <p className="text-xs sm:text-sm text-[#666666] mt-1 md:mt-2">{card.text}</p>
                         </div>
                     </div>
                 ))}
